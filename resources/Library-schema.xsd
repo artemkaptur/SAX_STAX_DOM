@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xns:schema xmlns:xns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.it-academy.by/library-schema" xmlns:itacby="http://www.it-academy.by/library-schema"
+	elementFormDefault="qualified">
+
+	<xns:element name="library">
+		<xns:complexType>
+			<xns:sequence>
+				<xns:element name="printed_publications" type="itacby:printed_publications_type" />
+			</xns:sequence>
+		</xns:complexType>
+	</xns:element>
+
+	<xns:complexType name="printed_publications_type">
+		<xns:sequence>
+			<xns:element name="book" type="itacby:book_type"
+				maxOccurs="unbounded" />
+			<xns:element name="magazine" type="itacby:magazine_type"
+				maxOccurs="unbounded" />
+			<xns:element name="newspaper" type="itacby:newspaper_type"
+				maxOccurs="unbounded" />
+		</xns:sequence>
+		<xns:attribute name="total_count" />
+	</xns:complexType>
+
+	<xns:complexType name="common_info">
+		<xns:sequence>
+			<xns:element name="current_count">
+				<xns:simpleType>
+					<xns:restriction base="xns:int">
+						<xns:minExclusive value="0" />
+					</xns:restriction>
+				</xns:simpleType>
+			</xns:element>
+			<xns:element name="days_for_borrowing">
+				<xns:simpleType>
+					<xns:restriction base="xns:int">
+						<xns:minExclusive value="-1" />
+						<xns:maxExclusive value="22" />
+					</xns:restriction>
+				</xns:simpleType>
+			</xns:element>
+			<xns:element name="title" type="xns:string" />
+			<xns:element name="count_of_pages">
+				<xns:simpleType>
+					<xns:restriction base="xns:int">
+						<xns:minExclusive value="0" />
+					</xns:restriction>
+				</xns:simpleType>
+			</xns:element>
+		</xns:sequence>
+		<xns:attribute name="able_to_borrow" />
+	</xns:complexType>
+
+	<xns:complexType name="book_type">
+		<xns:complexContent>
+			<xns:extension base="itacby:common_info">
+				<xns:sequence>
+					<xns:element name="authors" type="itacby:authors_type" />
+					<xns:element name="genre" type="xns:string" />
+					<xns:element name="year">
+						<xns:simpleType>
+							<xns:restriction base="xns:int">
+								<xns:minExclusive value="0" />
+							</xns:restriction>
+						</xns:simpleType>
+					</xns:element>
+				</xns:sequence>
+			</xns:extension>
+		</xns:complexContent>
+	</xns:complexType>
+
+	<xns:complexType name="authors_type">
+		<xns:sequence maxOccurs="unbounded">
+			<xns:element name="author" type="itacby:author_type" />
+		</xns:sequence>
+	</xns:complexType>
+
+	<xns:complexType name="author_type">
+		<xns:sequence>
+			<xns:element name="name" type="xns:string" />
+			<xns:element name="surname" type="xns:string" />
+		</xns:sequence>
+	</xns:complexType>
+
+	<xns:complexType name="magazine_type">
+		<xns:complexContent>
+			<xns:extension base="itacby:common_info">
+				<xns:sequence>
+					<xns:element name="content" type="xns:string" />
+					<xns:element name="release_date" type="xns:string" />
+					<xns:element name="periodicity" type="xns:string" />
+				</xns:sequence>
+			</xns:extension>
+		</xns:complexContent>
+	</xns:complexType>
+
+	<xns:complexType name="newspaper_type">
+		<xns:complexContent>
+			<xns:extension base="itacby:common_info">
+				<xns:sequence>
+					<xns:element name="topic" type="xns:string" />
+					<xns:element name="date" type="xns:string" />
+					<xns:element name="frequency" type="xns:string" />
+				</xns:sequence>
+			</xns:extension>
+		</xns:complexContent>
+	</xns:complexType>
+</xns:schema>

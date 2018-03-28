@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+
+<library xmlns="http://www.it-academy.by/library-schema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.it-academy.by/library-schema Library-schema.xsd">
+
+	<printed_publications total_count="80">
+
+		<book able_to_borrow="yes">
+			<current_count>15</current_count>
+			<days_for_borrowing>21</days_for_borrowing>
+			<title>It</title>
+			<count_of_pages>1138</count_of_pages>
+			<authors>
+				<author>
+					<name>Stephen</name>
+					<surname>King</surname>
+				</author>
+			</authors>
+			<genre>Horror</genre>
+			<year>1986</year>
+		</book>
+
+		<book able_to_borrow="no">
+			<current_count>5</current_count>
+			<days_for_borrowing>0</days_for_borrowing>
+			<title>American Psycho</title>
+			<count_of_pages>399</count_of_pages>
+			<authors>
+				<author>
+					<name>Bret</name>
+					<surname>Ellis</surname>
+				</author>
+			</authors>
+			<genre>Satire</genre>
+			<year>1991</year>
+		</book>
+
+		<magazine able_to_borrow="yes">
+			<current_count>35</current_count>
+			<days_for_borrowing>7</days_for_borrowing>
+			<title>TIME</title>
+			<count_of_pages>27</count_of_pages>
+			<content>News</content>
+			<release_date>01.03.2018</release_date>
+			<periodicity>Weekly</periodicity>
+		</magazine>
+
+		<newspaper able_to_borrow="no">
+			<current_count>25</current_count>
+			<days_for_borrowing>0</days_for_borrowing>
+			<title>Financial Times</title>
+			<count_of_pages>18</count_of_pages>
+			<topic>Business</topic>
+			<date>07.03.2018</date>
+			<frequency>Daily</frequency>
+		</newspaper>
+
+	</printed_publications>
+
+</library>
